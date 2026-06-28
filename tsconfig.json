@@ -5,6 +5,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "target": "esnext",
+    "rewriteRelativeImportExtensions": true,
     "jsx": "react-jsx",
     "allowJs": true,
     "types": ["node"],
@@ -16,6 +17,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["src/**/*", "webpack.config.ts"],
+  "include": ["**/*"],
   "exclude": ["node_modules"]
 }
