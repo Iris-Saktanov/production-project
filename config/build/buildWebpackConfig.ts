@@ -1,3 +1,4 @@
+import { buildDevServer } from "./buildDevServer.ts";
 import { buildLoaders } from "./buildLoaders.ts";
 import { buildPlugins } from "./buildPlugins.ts";
 import { buildResolvers } from "./buildResolvers.ts";
@@ -7,7 +8,7 @@ import webpack from "webpack";
 export function buildWebpackConfig(
   options: BuildOptions,
 ): webpack.Configuration {
-  const { mode, paths } = options;
+  const { mode, paths, isDev } = options;
   return {
     mode: mode,
 
@@ -25,5 +26,7 @@ export function buildWebpackConfig(
     resolve: buildResolvers(),
 
     plugins: buildPlugins(options),
+    devtool: isDev ? "inline-source-map" : undefined,
+    devServer: isDev ? buildDevServer(options) : undefined,
   };
 }
