@@ -1,6 +1,7 @@
 import Counter from "./components/Counter";
 import { someFn } from "./test";
 import { createRoot } from "react-dom/client";
+import "./index.scss";
 
 someFn();
 
@@ -11,7 +12,7 @@ if (!domContainer) {
 const root = createRoot(domContainer);
 root.render(
   <>
-    <h1>Hello from index.ts file!!!</h1>
+    <h1 className="app">Hello from index.ts file!!!</h1>
     <Counter />
   </>,
 );
