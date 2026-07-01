@@ -1,11 +1,8 @@
-import Counter from "./components/Counter";
-import { someFn } from "./test";
 import { createRoot } from "react-dom/client";
-import "./index.scss";
+import "./styles/index.scss";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-
-someFn();
+import ThemeProvider from "./theme/ThemeProvider";
 
 const domContainer = document.getElementById("root");
 if (!domContainer) {
@@ -14,7 +11,8 @@ if (!domContainer) {
 const root = createRoot(domContainer);
 root.render(
   <BrowserRouter>
-    <App />
-    <Counter />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </BrowserRouter>,
 );
